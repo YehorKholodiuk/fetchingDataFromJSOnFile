@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import data from './data.json';
+export const UsersDetails = () =>{
+  return(
+      <>
+        <div>
+          <div>Name : {data.name}</div>
+          <div>Email : {data.email}</div>
+          <div>Website : {data.website}</div>
+          <div><label>Country :</label>
+            <select>
+              {data.country.map((country) => {
+                return <option key={country.id} value={country.id}>{country.name}</option>
+              })}
+            </select>
+          </div>
+        </div>
+      </>
+  )
 }
-
-export default App;
+export default UsersDetails
